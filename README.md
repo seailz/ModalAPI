@@ -34,8 +34,40 @@ public class ModalCommand extends ListenerAdapter {
 }
 ```
 
-If you want to use this API, you can use Maven to add it to your project:
-**COMING SOON**
+If you want to use this API, you can use Maven or Gradle to add it to your project:
+
+Maven:
+
+```xml
+<repository>
+    <id>jitpack.io</id>
+	<url>https://jitpack.io</url>
+</repository>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.seailz</groupId>
+	<artifactId>modalapi</artifactId>
+	<version>v1.0</version>
+</dependency>
+
+Gradle:
+
+```groovy
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+```groovy
+	dependencies {
+	        implementation 'com.github.seailz:modalapi:Tag'
+	}
+```
 
 
 *Note: Discord currently supports select menus in modals, but they haven't documented it yet. If you want to use select menus, please use the maven configuration found below.
@@ -43,5 +75,5 @@ I can't gaurentee that branch will be stable though, as it is using commits from
 
 <details>
 <summary> Select Menus Maven </summary>
-
+**COMING SOON** (i can't be bothered to set it up rn)
 </details>
