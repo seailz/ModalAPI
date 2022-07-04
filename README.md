@@ -51,6 +51,7 @@ Maven:
 	<artifactId>modalapi</artifactId>
 	<version>v1.0</version>
 </dependency>
+```
 
 Gradle:
 
