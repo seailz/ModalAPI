@@ -76,6 +76,7 @@ I can't gaurentee that branch will be stable though, as it is using commits from
 
 <details>
 <summary> Select Menus Maven </summary>
+	
 ```xml
 <repository>
     <id>jitpack.io</id>
