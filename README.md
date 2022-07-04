@@ -76,5 +76,18 @@ I can't gaurentee that branch will be stable though, as it is using commits from
 
 <details>
 <summary> Select Menus Maven </summary>
-**COMING SOON** (i can't be bothered to set it up rn)
+```xml
+<repository>
+    <id>jitpack.io</id>
+	<url>https://jitpack.io</url>
+</repository>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.seailz</groupId>
+	<artifactId>modalapi</artifactId>
+	<version>feature~selectmenus-SNAPSHOT</version>
+</dependency>
+```
 </details>
