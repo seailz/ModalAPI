@@ -23,6 +23,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.interactions.Interaction;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.ItemComponent;
 
@@ -46,7 +47,7 @@ public class ModalManager {
      * @param member The member to show the modal to
      * @param interaction The interaction to reply to
      */
-    public static void open(Modal modal, Member member, SlashCommandInteractionEvent interaction) {
+    public static void open(Modal modal, Member member, Interaction interaction) {
         ArrayList<ItemComponent> components = new ArrayList<>();
         modal.getComponents().forEach(component -> {
             components.add(component.apply(member));
@@ -60,27 +61,17 @@ public class ModalManager {
             jdaModal.addActionRows(ActionRow.of(component));
         });
 
-        interaction.replyModal(jdaModal.build()).queue();
+        if (interaction instanceof SlashCommandInteractionEvent) {
+            SlashCommandInteractionEvent e = (SlashCommandInteractionEvent) interaction;
+            e.replyModal(jdaModal.build()).queue();
+        } else if (interaction instanceof ButtonInteractionEvent) {
+            ButtonInteractionEvent e = (ButtonInteractionEvent) interaction;
+            e.replyModal(jdaModal.build()).queue();
+        } else
+            throw new IllegalStateException("Interaction is not a SlashCommandInteractionEvent or ButtonInteractionEvent");
+
+
         modals.add(Map.entry(member, modal));
 
     }
-
-    public static void open(Modal modal, Member member, ButtonInteractionEvent interaction) {
-        ArrayList<ItemComponent> components = new ArrayList<>();
-        modal.getComponents().forEach(component -> {
-            components.add(component.apply(member));
-        });
-
-        net.dv8tion.jda.api.interactions.components.Modal.Builder jdaModal = net.dv8tion.jda.api.interactions.components.Modal.create(
-                modal.getId(), modal.getTitle()
-        );
-
-        components.forEach(component -> {
-            jdaModal.addActionRows(ActionRow.of(component));
-        });
-
-        interaction.replyModal(jdaModal.build()).queue();
-        modals.add(Map.entry(member, modal));
-    }
-
 }

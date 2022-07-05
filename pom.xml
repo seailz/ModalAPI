@@ -24,7 +24,7 @@
         <dependency>
             <groupId>com.github.xirado</groupId>
             <artifactId>JDA</artifactId>
-            <version>36eea2a1c5</version>
+            <version>86969dfa901e827d12cbe7e2dffe0492f07e5c49</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
