@@ -78,26 +78,3 @@ Gradle:
 	        implementation 'com.github.seailz:modalapi:Tag'
 	}
 ```
-
-
-*Note: Discord currently supports select menus in modals, but they haven't documented it yet. If you want to use select menus, please use the maven configuration found below.
-I can't gaurentee that branch will be stable though, as it is using commits from a PR on JDA, found here: https://github.com/DV8FromTheWorld/JDA/pull/2162*
-
-<details>
-<summary> Select Menus Maven </summary>
-	
-```xml
-<repository>
-    <id>jitpack.io</id>
-	<url>https://jitpack.io</url>
-</repository>
-```
-
-```xml
-<dependency>
-    <groupId>com.github.seailz</groupId>
-	<artifactId>modalapi</artifactId>
-	<version>feature~selectmenus-SNAPSHOT</version>
-</dependency>
-```
-</details>
